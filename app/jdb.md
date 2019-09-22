@@ -1,6 +1,7 @@
 ## 借贷宝
-### 接口：发起淘宝信息查询
->路由 api/task/jdb
+### 接口：发起借贷宝信息查询
+>路由 api/task/jdb/{mobile}
+> mobile|string(11)|手机号
 
 >方法 POST
 
@@ -8,41 +9,6 @@
 
 参数名|类型|说明
 ---|:--:|---:
-mobile|string(11)|手机号
-
->返回数据data说明
-
-参数名|类型|说明
----|:--:|---:
-qrcode|string(255)|需要使用手机淘宝扫码的登录二维码，有效期40秒
-
-### 查询淘宝信息
-
->路由 api/task/taobao/{mobile} 
->
->mobile为用户手机号
-
->方法 GET
-
->返回数据data说明
-
-参数名|类型|说明
----|:--:|---:
-
-
-
-
-## 无忧借条
-### 接口：发起信息查询
->路由 api/task/wy
-
->方法 POST
-
->参数
-
-参数名|类型|说明
----|:--:|---:
-mobile|string(11)|手机号
 account|string(30)|登录账号
 password|string(30)|登录密码
 
@@ -50,6 +16,33 @@ password|string(30)|登录密码
 
 参数名|类型|说明
 ---|:--:|---:
+captcha|string(10)|NEEDED 需要前台向服务器发送验证码，如果无返回该字段则不需要验证码
 
+### 接口：发送登录手机验证码到服务器
 
+> 路由 api/task/taobao/{mobile}/captcha
+> mobile|string(11)|手机号
 
+>方法 POST
+
+>参数
+
+参数名|类型|说明
+---|:--:|---:
+captcha|string(10)|发送到手机的验证码
+
+>无返回数据data说明
+
+### 接口：查询已经获取到的用户数据
+
+> 路由 api/task/taobao/{mobile}
+> mobile|string(11)|手机号
+
+>方法 GET
+
+>无参数
+
+>返回数据data说明
+```
+待完成
+```

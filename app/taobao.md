@@ -1,14 +1,12 @@
 ## 淘宝
 ### 接口：发起淘宝信息查询
->路由 api/task/taobao
+> 路由 api/task/taobao/{mobile} 
+> mobile|string(11)|手机号
 
 >方法 POST
 
 >参数
 
-参数名|类型|说明
----|:--:|---:
-mobile|string(11)|手机号
 
 >返回数据data说明
 
