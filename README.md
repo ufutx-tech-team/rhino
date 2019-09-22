@@ -14,7 +14,7 @@ data|string|具体数据，JSON stringify 化了，如果 code == 0，无此字�
 [淘宝](./app/taobao.md)| Web  | √ | X
 [无忧借条](./app/wy.md)| App(Android) | √ | √
 [今借到](./app/jjd.md)| Web | √ | X
-[借贷宝](./app/jdb.md)| App(Android)| √ | X
+[借贷宝](./app/jdb.md)| App(Android)| √ | √
 [米房](./app/mf.md)| App | X | X
 [移动](./app/mobile.md)|   | X | X
 [联通](./app/unicom.md)|   | X | X
