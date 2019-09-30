@@ -1,15 +1,15 @@
 # Web 自动化测试
 
 ## 开发流程说明
-1. 利用基于 pyppeteer 启动匹配版本号的Chrome浏览器，再打开想要打开的网页
+1. 利用基于 pyppeteer 启动匹配版本号的Chrome浏览器，再打开想要打开的网页
 2. 利用Python编写基于ChromeDriver的代码来控制Web网页元素
 3. 得到页面的内容，保存它用?
 
-## 开发环境（以我自己的开发机为例）
+## 开发环境（以开发机为例）
 1. 操作系统：Mac 10.14.6 (18G95)
 2. 依赖框架：[Pyppeteer](https://github.com/miyakogi/pyppeteer/ )
 3. 开发语言：Python3.7
->选择pyppeteer
+>选择pyppeteer是因为可以完全模拟人手动的操作，不会被识别为机器操作
 ## Python3的requirements.txt
 ```
 pyquery==1.4.0
@@ -26,7 +26,7 @@ beautifulsoup4==4.8.0
 1. 按上面的要求安装相应的包就行
 2. pip3 uninstall websockets
 3. pip3 install websockets==6.0
-> pyppeteer 运行时有一个bug，需要跑在6.0下面才不会有问题
+> pyppeteer 运行时有一个bug，需要跑在6.0下面才不会有问题
 
 ## 具体开发流程
 1. 初始化页面
@@ -47,22 +47,21 @@ beautifulsoup4==4.8.0
 
 2. 在页面上查找元素
     
-    为了方便，统一使用 await self.page.evaluate 执行JS语句，进行操作或者是返回属性
+    * 使用JavaScript语句，await self.page.evaluate 执行JS语句，进行操作或者是返回属性
     ```
         await self.page.evaluate(
             'document.getElementById("J_Static2Quick").click()'
         )
         await self.page.evaluate(
-            'document.querySelector("#baseInfoSet a").click()'
+            'document.querySelector("#baseInfoSet a").text'
         )
         
     ```
 
-3. 操作这个元素或者获取值
-   
+3. 输入数据
+    * 使用 pyppeteer查找元素并且输入
     ```
-    element.click()            #点击这个元素，一般用来跳转
-    element.text               #获取这个元素的文本
-    for element in elements:   #如果获取到元素数组的话，可以用循环来进行操作
-        element.text
+    await page.type('#UserName', 'username', {'delay': 50})
+    await page.type('#Password', , {'delay': 50})
+   
    ```

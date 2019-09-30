@@ -2,8 +2,8 @@
 
 ## 开发流程说明
 1. 利用AppiumDesktop查看手机的元素
-2. 利用Python编写基于Appium的代码来控制真机APP
-3. 得到真机的内容，保存它用?
+2. 利用Python编写基于Appium的代码来控制真机APP
+3. 得到真机的内容，保存它用?
 
 ## 开发环境（以我自己的开发机为例）
 1. 操作系统：Mac 10.14.6 (18G95)
@@ -36,7 +36,7 @@ beautifulsoup4==4.8.0
 3. 手机打开开发者模式，查看android的版本号，联结到PC后，使用adb devices 命令行，查看手机的设备号，备用
 4. 下载好对应的手机APP到本机，最好是开发者模式生成的包
 
-## 具体开发流程
+## 具体开发流程
 1. 使用 appt 命令查看app包的Package和Activity名称
    ```
    aapt dump badging path/to/app.apk
@@ -66,7 +66,7 @@ beautifulsoup4==4.8.0
 ```
     {
     "app": "~/Downloads/jiaduobao.apk",
-    "platformName": "Android",  
+    "platformName": "Android",  
     "platformVersion": "9",
     "noReset": true,
     "deviceName": "28PNW18310000441",
@@ -76,7 +76,7 @@ beautifulsoup4==4.8.0
     }
 ```
 
-参数名称|说明
+参数名称|说明
 ---|---
 app|本地保存的apk文件的路径，绝对路径
 platformName | Android 是安卓手机来运行，所以写Android
@@ -84,7 +84,7 @@ platformVersion | 手机系统安装的版本，当前手机是 9 就写 9 ，�
 deviceName| 手机的设备号，上面我们用 adb devices获取到的
 udid | 填写上面一样的就行
 appPackage | 上面获取到的package 
-appActivity | 上面获取到的launch activity
+appActivity | 上面获取到的launch activity
 
 然后点击【start session】
 
@@ -114,6 +114,6 @@ appActivity | 上面获取到的launch activity
     ```
     element.click()            #点击这个元素，一般用来跳转
     element.text               #获取这个元素的文本
-    for element in elements:   #如果获取到元素数组的话，可以用循环来进行操作
+    for element in elements:   #如果获取到元素数组的话，可以用循环来进行操作
         element.text
    ```
